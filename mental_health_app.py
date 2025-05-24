@@ -1,7 +1,7 @@
 # Main Flask application
 
 from flask import Flask, request, jsonify, abort
-import dbconfig as cfg  ?????
+import dbconfig as cfg  
 from MentalHealthDAO import MentalHealthDAO
 
 # DAO
