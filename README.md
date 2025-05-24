@@ -39,5 +39,9 @@ You can submit a pull request regarding my code if you discover an error or if I
 
 - How to install MySQL : https://www.youtube.com/watch?v=BxdSUGBs0gM
 
+- How to reset the root password MySQL: https://dev.mysql.com/doc/refman/8.4/en/resetting-permissions.html
+
+- Flask tutorial beginners: https://www.youtube.com/watch?v=5aYpkLfkgRE&t=129s
+
 ***
 End
