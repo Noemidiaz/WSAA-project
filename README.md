@@ -45,13 +45,13 @@ In this project is used the following tools:
 
 - **render_template**: Flask function that loads and returns HTML page from templates of the folder of the app/project
 
--**request**: It allows access to data by users (via forms or API calls)
+- **request**: It allows access to data by users (via forms or API calls)
 
--**redirect**: Redirects users to another page actions. (Ex. after form submission)
+- **redirect**: Redirects users to another page actions. (Ex. after form submission)
 
--**url_for**: Generates URLs to routes within the app dynamically
+- **url_for**: Generates URLs to routes within the app dynamically
 
--**flash**: pop up messages for the user (Ex. To indicate success or error notification). 
+- **flash**: pop up messages for the user (Ex. To indicate success or error notification). 
 
 
 
