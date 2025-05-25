@@ -15,6 +15,11 @@ app.secret_key = 'dev1234'
 def index():
         return render_template('index.html')
 
+@app.route('/hello')
+def hello():
+    return "Hello, PythonAnywhere!"
+
+
 #route to info by click button
 @app.route('/info')
 def info():
