@@ -1,5 +1,5 @@
 # Main Flask application
-from flask import Flask, request, jsonify, abort, render_template, redirect, url_for
+from flask import Flask, request, jsonify, abort, render_template, redirect, url_for, flash
 import dbconfig as cfg  
 from MentalHealthDAO import MentalHealthDAO
 
@@ -9,6 +9,8 @@ dao = MentalHealthDAO()
 # API Route
 # home page route
 app = Flask(__name__)
+app.secret_key = 'dev1234'
+
 @app.route('/')
 def index():
         return render_template('index.html')
@@ -71,7 +73,7 @@ def add_patient():
     except Exception as e:
         return jsonify({"error": str(e)}), 400
     
-#update patient json
+#update patient 
 @app.route('/update/<int:id>', methods=['GET'])
 def update_form(id):
     patient = dao.find_by_id(id)
@@ -81,24 +83,25 @@ def update_form(id):
         return f"Patient with ID {id} not found", 404
 
 #update method
-@app.route('/patients/<int:id>', methods=['POST'])
-def update_patient_form(id):
-    if request.form.get('_method') == 'PUT':
-        survey = {
-            'name': request.form['name'],
-            'age': request.form['age'],
-            'gender': request.form['gender'],
-            'location': request.form['location'],
-            'service_type': request.form['service_type'],
-            'provider_name': request.form['provider_name']
-        }
-        try:
-            dao.update(id, survey)
-            return redirect(url_for('get_all_patients'))  # or whatever your data page is
-        except Exception as e:
-            return f"Error: {e}", 400
-    else:
-        return "Invalid method override", 400
+@app.route('/update/<int:id>', methods=['POST'])
+def update_patient(id):
+    updated_data = {
+        'name': request.form['name'],
+        'age': request.form['age'],
+        'gender': request.form['gender'],
+        'location': request.form['location'],
+        'service_type': request.form['service_type'],
+        'provider_name': request.form['provider_name']
+    }
+    try:
+        dao.update(id, updated_data)
+        flash("Patient updated successfully!", "success")
+        return redirect(url_for('info'))  #  'info' display route
+    except Exception as e:
+        flash(f"An error occurred during update: {e}", "error")
+        return redirect(url_for('update_form', id=id))
+
+
 
 
 #delete patient 
