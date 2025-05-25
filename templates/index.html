@@ -1,6 +1,7 @@
 <!-- templates/index.html -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Mental Health Survey</title>
@@ -19,7 +20,8 @@
             margin-top: 10px;
         }
 
-        input, select {
+        input,
+        select {
             width: 100%;
             padding: 8px;
             margin-top: 4px;
@@ -31,6 +33,7 @@
         }
     </style>
 </head>
+
 <body>
     <h1>Mental Health Survey Form</h1>
     <form action="/submit" method="POST">
@@ -56,7 +59,10 @@
             <option value="Online Counseling">Online Counseling</option>
             <option value="Group Therapy">Group Therapy</option>
             <option value="Individual Therapy">Individual Therapy</option>
-            
+            <option value="Psychoeducation Workshops">Psychoeducation Workshop</option>
+            <option value="Art Therapy">Art Therapy</option>
+            <option value="Substance Abuse Counseling">Substance Abuse Counseling</option>
+
         </select>
 
         <label for="provider_name">Provider:</label>
@@ -64,9 +70,17 @@
             <option value="">-- Select Provider --</option>
             <option value="Public">Public</option>
             <option value="Private">Private</option>
+            <option value="Foundation-supported organizations">Foundation-supported organizations</option>
         </select>
 
         <button type="submit">Submit Survey</button>
+
+       
+        <a href="{{ url_for('info') }}">
+            <button type="button">View Submitted Data</button>
+        </a>
+
     </form>
 </body>
+
 </html>

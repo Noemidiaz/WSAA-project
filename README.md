@@ -43,5 +43,7 @@ You can submit a pull request regarding my code if you discover an error or if I
 
 - Flask tutorial beginners: https://www.youtube.com/watch?v=5aYpkLfkgRE&t=129s
 
+- Flask URL Helper Function: https://www.geeksforgeeks.org/flask-url-helper-function-flask-url_for/
+
 ***
 End

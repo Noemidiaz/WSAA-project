@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Patient Info</title>
+    <style>
+        body { font-family: Arial; padding: 2rem; }
+        form { max-width: 400px; }
+        label, input, select { display: block; width: 100%; margin-bottom: 10px; }
+        button { margin-top: 15px; }
+    </style>
+</head>
+<body>
+    <h2>Update Patient Info</h2>
+    <form action="/patients/{{ patient.id }}" method="POST">
+        <input type="hidden" name="_method" value="PUT">
+
+        <label for="name">Name:</label>
+        <input type="text" name="name" value="{{ patient.name }}" required>
+
+        <label for="age">Age:</label>
+        <input type="number" name="age" value="{{ patient.age }}" required>
+
+        <label for="gender">Gender:</label>
+        <select name="gender" required>
+            <option value="Male" {% if patient.gender == 'Male' %}selected{% endif %}>Male</option>
+            <option value="Female" {% if patient.gender == 'Female' %}selected{% endif %}>Female</option>
+        </select>
+
+        <label for="location">Location:</label>
+        <input type="text" name="location" value="{{ patient.location }}" required>
+
+        <label for="service_type">Service Type:</label>
+        <input type="text" name="service_type" value="{{ patient.service_type }}" required>
+
+        <label for="provider_name">Provider:</label>
+        <input type="text" name="provider_name" value="{{ patient.provider_name }}" required>
+
+        <button type="submit">Update Info</button>
+    </form>
+</body>
+</html>

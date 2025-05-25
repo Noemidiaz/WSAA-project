@@ -1,5 +1,4 @@
 # Main Flask application
-
 from flask import Flask, request, jsonify, abort, render_template, redirect, url_for
 import dbconfig as cfg  
 from MentalHealthDAO import MentalHealthDAO
@@ -13,6 +12,17 @@ app = Flask(__name__)
 @app.route('/')
 def index():
         return render_template('index.html')
+
+#route to info by click button
+@app.route('/info')
+def info():
+    try:
+        patients = dao.get_all()  # Fetch all survey entries from DB
+        return render_template('info.html', patients=patients)
+    except Exception as e:
+        return f"An error occurred: {e}", 500
+
+
 
 #form submission route
 @app.route('/submit', methods=['POST'])  # submittion route
@@ -62,14 +72,34 @@ def add_patient():
         return jsonify({"error": str(e)}), 400
     
 #update patient json
-@app.route('/patients/<int:id>', methods=['PUT'])
-def update_patient(id):
-    survey = request.json
-    try:
-        dao.update(id, survey)
-        return jsonify({"message": "Patient updated"})
-    except Exception as e:
-        return jsonify({"error": str(e)}), 400
+@app.route('/update/<int:id>', methods=['GET'])
+def update_form(id):
+    patient = dao.find_by_id(id)
+    if patient:
+        return render_template('updateInfo.html', patient=patient)
+    else:
+        return f"Patient with ID {id} not found", 404
+
+#update method
+@app.route('/patients/<int:id>', methods=['POST'])
+def update_patient_form(id):
+    if request.form.get('_method') == 'PUT':
+        survey = {
+            'name': request.form['name'],
+            'age': request.form['age'],
+            'gender': request.form['gender'],
+            'location': request.form['location'],
+            'service_type': request.form['service_type'],
+            'provider_name': request.form['provider_name']
+        }
+        try:
+            dao.update(id, survey)
+            return redirect(url_for('get_all_patients'))  # or whatever your data page is
+        except Exception as e:
+            return f"Error: {e}", 400
+    else:
+        return "Invalid method override", 400
+
 
 #delete patient 
 @app.route('/patients/<int:id>', methods=['DELETE'])
