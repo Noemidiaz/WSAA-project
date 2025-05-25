@@ -39,20 +39,31 @@ In this project is used the following tools:
  #### PythonAnywhere: 
  Hosting platform where the app is upload and anyone can access it online. It is use for small and beginner Python projects.
 
+## Key Flask Imports 
+
+- **Flask**: Create the Flask application
+
+- **render_template**: Flask function that loads and returns HTML page from templates of the folder of the app/project
+
+-**request**: It allows access to data by users (via forms or API calls)
+
+-**redirect**: Redirects users to another page actions. (Ex. after form submission)
+
+-**url_for**: Generates URLs to routes within the app dynamically
+
+-**flash**: pop up messages for the user (Ex. To indicate success or error notification). 
 
 
 
+## How to run the App Locally
 
-
-## How to Run the App Locally
-
-1. Clone the repository:
+1. **Clone the repository:**
 
 ```python
 git clone  https://github.com/YourUsername/YourRepo.git
 
 ```
-2. Install dependencies:
+2. **Install dependencies:**
 
 ```python
 pip install -r requirements.txt
@@ -62,25 +73,28 @@ Inside requirements.txt are for example:
 flask
 mysql-connector-python
 
-3. Set up the database:
+3. **Set up the database:**
 - Download MySQL
 - Create a schema and a table
 - Private credentials in dbconfig.py file keep in .gitignore for safety reasons
+create dbconfig.py with this format:
 
-4. Run the app:
+```python
+host = 'your-database-host'
+user = 'your-database-username'
+password = 'your-database-password'
+database = 'your-database-name'
+```
+4. **Run the  Flask app:**
+
  ```python
  python mental_health_app.py
 ```
 
-use for 
-message flash
-
- ## Conclusion
- 
 
  ## Get help
  
-
+Below, you will find some references from official websites with tutorials videos, examples and theoretical explanation.These resources complement and expand upon the knowledge covered in these project.
 
  ## Contribute
 You can submit a pull request regarding my code if you discover an error or if It should be updated.
@@ -88,6 +102,7 @@ You can submit a pull request regarding my code if you discover an error or if I
  ## Author
  
  I am Noemi Diaz and I am currently studying Science in Computing in Data Analytics at ATU.
+
 
  ## References
 
@@ -107,6 +122,13 @@ You can submit a pull request regarding my code if you discover an error or if I
 
 - HTML Introduccion: https://www.w3schools.com/html/html_intro.asp
 
+- Templates: https://flask.palletsprojects.com/en/stable/tutorial/templates/
+
+- Flask : https://tedboy.github.io/flask/tutorial/index.html
+
+- request in Flask: https://www.geeksforgeeks.org/python-flask-request-object/
+
+- Flask templates: https://python-adv-web-apps.readthedocs.io/en/latest/flask3.html
 
 ***
 End
