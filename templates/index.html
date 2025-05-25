@@ -1,0 +1,72 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mental Health Survey</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 2rem;
+        }
+
+        form {
+            max-width: 400px;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 4px;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Mental Health Survey Form</h1>
+    <form action="/submit" method="POST">
+        <label for="name">Name:</label>
+        <input type="text" name="name" required>
+
+        <label for="age">Age:</label>
+        <input type="number" name="age" required>
+
+        <label for="gender">Gender:</label>
+        <select name="gender" required>
+            <option value="">-- Select Gender --</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+        </select>
+
+        <label for="location">Location:</label>
+        <input type="text" name="location" required>
+
+        <label for="service_type">Service Type:</label>
+        <select name="service_type" required>
+            <option value="">-- Select Service Type --</option>
+            <option value="Online Counseling">Online Counseling</option>
+            <option value="Group Therapy">Group Therapy</option>
+            <option value="Individual Therapy">Individual Therapy</option>
+            
+        </select>
+
+        <label for="provider_name">Provider:</label>
+        <select name="provider_name" required>
+            <option value="">-- Select Provider --</option>
+            <option value="Public">Public</option>
+            <option value="Private">Private</option>
+        </select>
+
+        <button type="submit">Submit Survey</button>
+    </form>
+</body>
+</html>
