@@ -1,5 +1,8 @@
 # Web Services and Applications
 
+## In this link you can acces and test the deployed Website Application:
+https://noemii.pythonanywhere.com/
+
 ![Introimage](https://cdn.pixabay.com/photo/2023/01/03/08/12/bitcoin-7693848_1280.png)
 
 ## About this repository
@@ -20,7 +23,7 @@ It is a simple web aspp built using Flask. The app lets create, read , update an
 
 - Interact with the app to perform CRUD operations (create, read, update and delete)
 
-- Hosting/ deploy the app online so others can acces and test it (currently in progress)
+- Hosting/ deploy the app online so others can acces and test it (access and test it: https://noemii.pythonanywhere.com/)
 
 
  ## Tool used
